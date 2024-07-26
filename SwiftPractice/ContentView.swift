@@ -15,7 +15,7 @@ struct ContentView: View {
     ]
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List(hikes) { hike in
                 NavigationLink {
                     Text("sd")
