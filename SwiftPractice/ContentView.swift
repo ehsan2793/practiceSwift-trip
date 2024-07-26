@@ -20,23 +20,7 @@ struct ContentView: View {
                 NavigationLink {
                     Text("sd")
                 } label: {
-                    HStack(alignment: .top) {
-                        Image(hike.photo)
-                            .resizable()
-                            .scaledToFit()
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            .frame(width: 75)
-
-                        VStack(alignment: .leading) {
-                            Text(hike.name)
-                                .font(.headline)
-
-                            Text("\(hike.miles.formatted()) miles")
-                                .font(.subheadline)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.gray)
-                        } //: VStack
-                    }
+                    HikeCellView(hike: hike)
                 }
             }
         }
@@ -45,4 +29,27 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+struct HikeCellView: View {
+    let hike: Hike
+    var body: some View {
+        HStack(alignment: .top) {
+            Image(hike.photo)
+                .resizable()
+                .scaledToFit()
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .frame(width: 75)
+
+            VStack(alignment: .leading) {
+                Text(hike.name)
+                    .font(.headline)
+
+                Text("\(hike.miles.formatted()) miles")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.gray)
+            } //: VStack
+        }
+    }
 }
