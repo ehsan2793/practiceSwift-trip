@@ -18,11 +18,12 @@ struct ContentView: View {
         NavigationStack {
             List(hikes) { hike in
                 NavigationLink {
-                    Text("sd")
+                    HikeDetailView(hike: hike)
                 } label: {
                     HikeCellView(hike: hike)
                 }
             }
+            .navigationTitle("Hikes")
         }
     }
 }
@@ -39,7 +40,7 @@ struct HikeCellView: View {
                 .resizable()
                 .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .frame(width: 75)
+                .frame(width: 100)
 
             VStack(alignment: .leading) {
                 Text(hike.name)
